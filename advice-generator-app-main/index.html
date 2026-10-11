@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- MANROPE FONT, ExtraBold weight 800 per style-guide.md -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Advice generator app</title>
+  </head>
+  <body>
+    <!--MAIN, primary content wrapper. It goes straight to the page core, and it's used once per page to define the dominant area -->
+    <main>
+      <!-- ARTICLE, groups the card content: advice number, quote and interactive button, in theory you could reuse it in another page -->
+      <article class="card">
+        <!-- H1, used as accessibility label, we will hide it using CSS, it's necessary for screen reader users and crawlers. It's NEEDED to define the page's core purpose -->
+        <h1 class="visually-hidden">Advice Generator</h1>
+
+        <!-- METADATA LABEL, its not a structural title but a label -->
+        <p class="card__label">ADVICE #<span id="advice-id">1</span></p>
+
+        <!-- QUOTE BLOCK, the actual advice content, semantically indicates that the text is a quotation from an external source (API). We use <blockquote> instead of <p> when the content is explicitly a quote -->
+        <blockquote class="card__text" id="advice-text">
+          “It is easy to sit up and take notice, what's difficult is getting up
+          and taking action.”
+        </blockquote>
+
+        <!-- DECORATIVE DIVIDER, visually separates the quote from the button. Images used purely for visual styling must have empty alt attributes -->
+        <div class="card__divider">
+          <img
+            src="./images/pattern-divider-desktop.svg"
+            alt=""
+            style="display: none"
+          />
+        </div>
+
+        <!-- GENERATE NEW ADVICE BUTTON, allows users to request a new piece of advice. The aria-label provides an accessible name for the button, describing the action, not the icon  -->
+        <button
+          class="card__button"
+          id="advice-button"
+          aria-label="Generate new advice"
+        >
+          <!-- Decorative icon, its empty alt attribute indicates it's for visual styling only, aria-label provides accessible name  -->
+          <img src="./images/icon-dice.svg" alt="" />
+        </button>
+      </article>
+    </main>
+
+    <!-- FOOTER, it contains attribution information; target="_blank" opens the link in a new tab, and rel="noopener noreferrer" prevents the new page from accessing the original page's information (tabnabbing) -->
+    <footer class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        href="https://github.com/Kavala1498"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Alejandro Guevara Torres</a
+      >,
+      <a
+        href="https://github.com/mauroacevedon"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Mauro Acevedo</a
+      >,
+      <a
+        href="https://github.com/Dannixx"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Danna Barrera</a
+      >.
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

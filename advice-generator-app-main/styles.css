@@ -1,0 +1,258 @@
+/* ============== 
+ BOX MODEL RESET ↓
+================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================== 
+ DESIGN TOKEN VAULT ↓
+================== */
+:root {
+  /* -----------------
+    PRIMITIVE TOKENS ↓
+    --------------- */
+
+  /* UNUSED ASSETS (Excluded per DRY principle):
+       - White (#ffffff) and Black (#000000) colors are defined but not used in the design.
+       - Blue 600 (#4f5d74) is defined but not used in the design, as the hr element is an image.
+       - Space 0 (0rem)
+    */
+
+  /* Colors */
+  --clr-blue-950: #202733; /* Body bg */
+  --clr-blue-900: #313a48; /* Card bg */
+  --clr-blue-200: #cee3e9; /* Quote color */
+  --clr-green-300: #53ffaa; /* Button, label color */
+
+  /* Typography Scale */
+  --font-size-xs: 0.6875rem; /* 11px | Attribution fs */
+  --font-size-sm: 0.8125rem; /* 13px | Label fs */
+  --font-size-md: 1.5rem; /* 24px | Mobile quote fs */
+  --font-size-lg: 1.75rem; /* 28px | Desktop quote fs */
+
+  /* Line Height */
+  --line-height: 1.35; /* 135% All text */
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.01875rem; /* -0.3px | Quote */
+  --letter-spacing-wide: 0.25rem; /* 4px | Label */
+
+  /* Spacing Scale */
+  --space-50: 0.25rem; /* 4px */
+  --space-200: 1rem; /* 16px */
+  --space-300: 1.5rem; /* 24px */
+  --space-400: 2rem; /* 32px */
+  --space-500: 2.5rem; /* 40px */
+  --space-600: 3rem; /* 48px */
+
+  /* Border radius */
+  --radius-lg: 50%; /* Button */
+  --radius-md: 0.9375rem; /* 15px | Desktop */
+  --radius-sm: 0.625rem; /* 10px | Mobile*/
+
+  /* Font Family */
+  --font-family: "Manrope", system-ui, sans-serif;
+
+  /* Font Weight */
+  --font-weight-800: 800; /* Extra Bold */
+
+  /* ---------------
+    PRIMITIVE TOKENS ↑
+    --------------- */
+
+  /* ----------------
+    SEMANTIC TOKENS ↓
+    --------------- */
+
+  /* Body */
+  --body-bg: var(--clr-blue-950);
+  --body-fw: var(--font-weight-800);
+
+  /* Card Component */
+  --card-bg: var(--clr-blue-900);
+  --card-radius: var(--radius-md);
+  --card-max-width: 33.75rem; /* 540px |  */
+  --card-margin-mob: 0 var(--space-200);
+  --card-padding-des: var(--space-500) var(--space-500) var(--space-400);
+  --card-padding-mob: var(--space-500) var(--space-300) var(--space-400);
+
+  /* Typography */
+  --label-fs: var(--font-size-sm);
+  --label-line-height: var(--line-height);
+  --label-letter-spacing: var(--letter-spacing-wide);
+  --label-color: var(--clr-green-300);
+  --label-margin-bottom-des: var(--space-300);
+  --label-margin-bottom-mob: var(--space-200);
+
+  /* Quote */
+  --quote-fs: var(--font-size-lg);
+  --quote-line-height: var(--line-height);
+  --quote-letter-spacing: var(--letter-spacing-tight);
+  --quote-color: var(--clr-blue-200);
+  --quote-margin-bottom-des: var(--space-500);
+  --quote-margin-bottom-mob: var(--space-400);
+
+  /* Divider */
+  --divider-height: 1rem; /* 16px | both Desktop and Mobile */
+  --divider-margin-bottom-des: var(--space-500);
+  --divider-margin-bottom-mob: var(--space-400);
+
+  /* Button */
+  --btn-size: 4rem; /* 64px | width & height */
+  --btn-bg-color: var(--clr-green-300);
+  --btn-radius: var(--radius-lg);
+  --btn-box-shadow: 0 0 var(--space-300) var(--btn-bg-color);
+
+  /* Attribution */
+  --attribution-fs: var(--font-size-xs);
+  --attribution-color: var(--clr-blue-200);
+  --attribution-a-bg-color: var(--clr-green-300);
+  --attribution-a-padding: var(--space-50);
+  --attribution-a-radius: var(--radius-md);
+  --attribution-margin-bottom: var(--space-200);
+  --attribution-a-color: var(--clr-blue-950);
+  --attribution-box-shadow: 0 0 var(--space-300) var(--attribution-a-bg-color);
+
+  /* ----------------
+    SEMANTIC TOKENS ↑
+    --------------- */
+}
+/* ================== 
+ DESIGN TOKEN VAULT ↑
+================== */
+
+/* ================ 
+ ADVICE GENERATOR ↓
+================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+  background-color: var(--body-bg);
+  font-family: var(--font-family);
+  font-weight: var(--body-fw);
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ATRIBUTTION ↓ */
+
+.attribution {
+  margin-bottom: var(--attribution-margin-bottom);
+  color: var(--attribution-color);
+  font-size: var(--attribution-fs);
+  text-align: center;
+  line-height: var(--line-height);
+  letter-spacing: var(--quote-letter-spacing);
+}
+.attribution a {
+  padding: var(--attribution-a-padding);
+  color: var(--attribution-a-color);
+  line-height: var(--line-height);
+  letter-spacing: var(--label-letter-spacing);
+  background-color: var(--attribution-a-bg-color);
+  border-radius: var(--attribution-a-radius);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.attribution a:hover,
+.attribution a:focus-visible {
+  box-shadow: var(--attribution-box-shadow);
+}
+
+/* ATRIBUTTION ↑ */
+
+/* CARD ↓ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: var(--card-max-width);
+  padding: var(--card-padding-des);
+  background-color: var(--card-bg);
+  border-radius: var(--card-radius);
+}
+.card__label {
+  margin-bottom: var(--label-margin-bottom-des);
+  font-size: var(--label-fs);
+  line-height: var(--label-line-height);
+  letter-spacing: var(--label-letter-spacing);
+  color: var(--label-color);
+}
+.card__text {
+  margin-bottom: var(--quote-margin-bottom-des);
+  color: var(--quote-color);
+  font-size: clamp(var(--font-size-md), 2.5vw, var(--font-size-lg));
+  text-align: center;
+  line-height: var(--quote-line-height);
+  letter-spacing: var(--quote-letter-spacing);
+}
+.card__divider {
+  margin-bottom: var(--divider-margin-bottom-des);
+  width: 100%;
+  height: var(--divider-height);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("./images/pattern-divider-desktop.svg");
+}
+/* Mobile <= 48rem → 768px que en Figma es tamaño tablet   */
+@media (max-width: 48rem) {
+  .card {
+    margin: var(--card-margin-mob);
+    padding: var(--card-padding-mob);
+  }
+  .card__label {
+    margin-bottom: var(--label-margin-bottom-mob);
+  }
+  .card__text {
+    margin-bottom: var(--quote-margin-bottom-mob);
+  }
+  .card__divider {
+    margin-bottom: var(--divider-margin-bottom-mob);
+    background-image: url("./images/pattern-divider-mobile.svg");
+  }
+}
+.card__button {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  height: var(--btn-size);
+  width: var(--btn-size);
+  padding: var(--button-padding);
+  background-color: var(--btn-bg-color);
+  border-style: none;
+  border-radius: var(--btn-radius);
+  transition: box-shadow 0.2s ease-in-out;
+}
+.card__button:hover,
+.card__button:focus-visible {
+  box-shadow: var(--btn-box-shadow);
+}
+/* CARD ↑ */
+
+/* ================ 
+ ADVICE GENERATOR ↑
+================ */
